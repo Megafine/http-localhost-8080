@@ -1,0 +1,366 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMER.UTMF</title>
+    <link rel="launch.JSON" href=file:///C:/Users/Lipe/Desktop/site%20jogos/index.html">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('file:///C:/Users/Lipe/Desktop/site%20jogos/index.html') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        header h1, header h2 {
+            margin: 0;
+            padding: 5px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px; /* Rounded borders */
+        }
+        header h1 {
+            color: #ff073a; /* Neon red color */
+            text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a, 0 0 80px #ff073a;
+            font-size: 3em; /* Increase the font size */
+        }
+        header h2 {
+            font-weight: normal;
+        }
+        header img {
+            margin-right: 10px;
+            border-radius: 50%; /* Make the image round */
+        }
+        nav {
+            background-color: rgba(68, 68, 68, 0.8);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around; /* Distribute space evenly */
+            padding: 10px 0;
+            border-radius: 20px; /* Rounded borders */
+            margin: 10px 20px; /* Add some margin */
+        }
+        nav a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px; /* Increase padding for more spacing */
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10px; /* Rounded borders for links */
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: #000;
+        }
+        .container {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .image-grid {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .image-grid img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: #000;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #ff073a;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #e6002e;
+        }
+        .form-container .password-container {
+            position: relative;
+        }
+        .form-container .password-container input[type="password"] {
+            padding-right: 40px;
+        }
+        .form-container .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            color: #ff073a;
+            position: relative;
+        }
+        .user-info i {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .settings-menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .settings-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #000;
+            border-radius: 5px;
+        }
+        .settings-menu a:hover {
+            background-color: #ddd;
+        }
+        .flag-icon {
+            width: 30px;
+            height: 20px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg') no-repeat center center;
+            background-size: cover;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em; /* Decrease the font size */
+            }
+            header h2 {
+                font-size: 1em; /* Decrease the font size */
+            }
+            header img {
+                width: 40px;
+                height: 40px;
+            }
+            nav a {
+                font-size: 0.8em; /* Decrease the font size */
+                padding: 10px 10px; /* Reduce padding */
+            }
+            .mobile-hide {
+                display: none;
+            }
+            .image-grid {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        function navigateTo(section) {
+            const container = document.querySelector('.container');
+            if (section === 'home') {
+                container.innerHTML = `
+                    <h2>Seção Principal</h2>
+                    <p>Site para Downloads de jogos, midia Utorrent e Mediafire</p>
+                `;
+            } else if (section === 'sobre') {
+                const oiElement = document.getElementById('oi');
+                if (oiElement) {
+                    oiElement.remove();
+                } else {
+                    const oi = document.createElement('p');
+                    oi.id = 'oi';
+                    oi.textContent = 'Oi';
+                    container.appendChild(oi);
+                }
+            } else if (section === 'utorrent') {
+                window.location.href = 'utorrent.html';
+            } else if (section === 'mediafire') {
+                window.location.href = 'mediafire.html';
+            } else if (section === 'registrar') {
+                container.innerHTML = `
+                    <div class="form-container">
+                        <h2>Registrar</h2>
+                        <form onsubmit="registerUser(event)">
+                            <label for="username">Nome de Usuário:</label>
+                            <input type="text" id="username" name="username" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="password-container">
+                                <label for="password">Senha:</label>
+                                <input type="password" id="password" name="password" required>
+                                <span class="toggle-password" onclick="togglePasswordVisibility('password')">👁️</span>
+                            </div>
+                            <div class="password-container">
+                                <label for="confirm-password">Repita a Senha:</label>
+                                <input type="password" id="confirm-password" name="confirm-password" required>
+                                <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password')">👁️</span>
+                            </div>
+                            <input type="submit" value="Registrar">
+                        </form>
+                    </div>
+                `;
+            } else if (section === 'login') {
+                container.innerHTML = `
+                    <div class="form-container">
+                        <h2>Login</h2>
+                        <form onsubmit="loginUser(event)">
+                            <label for="login-username">Nome de Usuário:</label>
+                            <input type="text" id="login-username" name="login-username" required>
+                            <label for="login-password">Senha:</label>
+                            <input type="password" id="login-password" name="login-password" required>
+                            <input type="submit" value="Login">
+                        </form>
+                    </div>
+                `;
+            }
+        }
+
+        function togglePasswordVisibility(id) {
+            const passwordField = document.getElementById(id);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        function registerUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const user = { username, email, password };
+            localStorage.setItem('user', JSON.stringify(user));
+            navigateTo('login');
+        }
+
+        function loginUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser && username === storedUser.username && password === storedUser.password) {
+                localStorage.setItem('loggedIn', 'true');
+                document.getElementById('user-name').textContent = '@' + username;
+                document.getElementById('user-settings').style.display = 'inline';
+                document.getElementById('flag-icon').style.display = 'inline';
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+                navigateTo('home');
+            } else {
+                alert('Nome de usuário ou senha incorretos');
+            }
+        }
+
+        function toggleSettingsMenu() {
+            const settingsMenu = document.getElementById('settings-menu');
+            if (settingsMenu.style.display === 'none' || settingsMenu.style.display === '') {
+                settingsMenu.style.display = 'block';
+            } else {
+                settingsMenu.style.display = 'none';
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('loggedIn');
+            document.getElementById('user-name').textContent = '';
+            document.getElementById('user-settings').style.display = 'none';
+            document.getElementById('flag-icon').style.display = 'none';
+            document.getElementById('login-link').style.display = 'inline';
+            document.getElementById('register-link').style.display = 'inline';
+            navigateTo('home');
+        }
+
+        function checkLoginStatus() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (loggedIn === 'true') {
+                const storedUser = JSON.parse(localStorage.getItem('user'));
+                document.getElementById('user-name').textContent = '@' + storedUser.username;
+                document.getElementById('user-settings').style.display = 'inline';
+                document.getElementById('flag-icon').style.display = 'inline';
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+            }
+        }
+
+        window.onload = checkLoginStatus;
+    </script>
+</head>
+<body>
+    <header>
+        <img alt="Logo" height="80" src="file:///C:/Users/Lipe/Desktop/748c023943bf2bef61e378e80e7358ba.jpg" width="80"/>
+        <div>
+            <h1>GAMER.UTMF</h1>
+            <h2>gamer.media.torrfire</h2>
+        </div>
+        <div class="user-info">
+            <div id="user-name"></div>
+            <div id="flag-icon" class="flag-icon" style="display: none;"></div>
+            <i id="user-settings" class="fas fa-cog" style="display: none;" onclick="toggleSettingsMenu()"></i>
+            <div id="settings-menu" class="settings-menu">
+                <a href="#conta">Conta</a>
+                <a href="#seguranca">Segurança</a>
+                <a href="#cdg2etapas">CDG2Etapas</a>
+                <a href="#" onclick="logoutUser()">Sair</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a id="login-link" onclick="navigateTo('login')">Login</a>
+        <a id="register-link" onclick="navigateTo('registrar')">Registrar</a>
+        <a class="mobile-hide" onclick="navigateTo('mediafire')">Mediafire</a>
+        <a class="mobile-hide" onclick="navigateTo('utorrent')">Utorrent</a>
+        <a class="mobile-hide" onclick="navigateTo('sobre')">Sobre</a>
+        <a onclick="navigateTo('home')">Home</a>
+    </nav>
+    <div class="container">
+        <h2>Seção Principal</h2>
+        <p>Site para Downloads de jogos, midia Utorrent e Mediafire</p>
+        <div class="image-grid">
+            <img alt="Placeholder Image 1" height="200" src="file:///C:/Users/Lipe/Desktop/748c023943bf2bef61e378e80e7358ba.jpg" width="200"/>
+            <img alt="Placeholder Image 2" height="200" src="file:///C:/Users/Lipe/Desktop/logoojogo.png" width="200"/>
+            <img alt="Placeholder Image 3" height="200" src="file:///C:/Users/Lipe/Desktop/748c023943bf2bef61e378e80e7358ba.jpg" width="200"/>
+            <img alt="Placeholder Image 4" height="200" src="file:///C:/Users/Lipe/Desktop/748c023943bf2bef61e378e80e7358ba.jpg" width="200"/>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Meu Site Simples. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+
